@@ -1,8 +1,14 @@
 #PATH="${PATH}:${HOME}/.local/bin/"
 set -gx PATH $HOME/.local/bin $PATH
 
-source $HOME/.config/fish/gpg.fish
-#wal -r &
+#source $HOME/.config/fish/gpg.fish
+wal -r &
+
+#GPG agent config
+gpgconf --launch gpg-agent
+
+set UID (id -u)
+set SSH_AUTH_SOCK "/run/user/$UID/gnupg/S.gpg-agent.ssh"
 
 set normal (set_color normal)
 set magenta (set_color magenta)
