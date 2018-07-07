@@ -1,0 +1,480 @@
+##################
+# Curses Settings
+##################
+# default values in parentheses
+
+# Enable curses windowport (false)
+OPTIONS=windowtype:curses  
+
+# To use new NH4-style status window (true)
+# set !classic_status
+# Not yet implemented in 3.6.1
+#OPTIONS=classic_status
+
+# Window borders (3)
+# 1 - always draw borders
+# 2 - never draw borders
+# 3 - draw borders if terminal is big enough
+OPTIONS=windowborders:3
+
+# Attributes for pet highlighting
+# may not all be supported by your terminal
+# [b]old
+# [i]inverse
+# [u]nderline
+# blin[k]
+# i[t]alic
+# [r]ightline
+# [l]eftline
+OPTIONS=petattr:i
+
+# use colour in non-map areas (true)
+#OPTIONS=guicolor
+
+# Display inventory window permanently on right of screen (false)
+# Note that this item is stored in the save file so will only take
+# effect on a new game.  Can be set in-game with 'O' for existing.
+OPTIONS=perm_invent
+
+# Window alignment (msg:top, status:bottom)
+# note: align_status:left/right displays a more verbose window, arranged vertically
+# There's no align_invent option. It just goes on the right.
+#OPTIONS=align_message:top
+#OPTIONS=align_status:bottom
+
+
+# Other stuff not specific to curses that you will want to use.
+OPTIONS=hitpointbar
+OPTIONS=color,menucolors,statushilites
+
+# End of Curses settings
+##################
+
+# junethack Tangles
+# rc file for 3.6.1
+# contributors include scorchgeek, stth, Grasshopper, dtype, dizzylizzy, maud, and others.
+
+# Booleans
+OPTIONS=!autodig
+OPTIONS=autoopen
+OPTIONS=autoquiver
+OPTIONS=bones
+OPTIONS=checkpoint
+OPTIONS=!cmdassist
+#OPTIONS=color
+OPTIONS=confirm
+OPTIONS=dark_room
+OPTIONS=!eight_bit_tty
+OPTIONS=!extmenu
+OPTIONS=fixinv
+OPTIONS=!help
+OPTIONS=hilite_pet
+OPTIONS=hilite_pile
+OPTIONS=!ignintr
+OPTIONS=lit_corridor
+OPTIONS=!lootabc
+OPTIONS=mail
+#OPTIONS=menucolors
+OPTIONS=pickup_thrown
+OPTIONS=prayconfirm
+OPTIONS=!pushweapon
+OPTIONS=!rest_on_space
+OPTIONS=safe_pet
+OPTIONS=showexp
+OPTIONS=showrace
+OPTIONS=showscore
+OPTIONS=silent
+OPTIONS=sortpack
+#OPTIONS=sound
+OPTIONS=!sparkle
+OPTIONS=!standout
+OPTIONS=time
+OPTIONS=travel
+OPTIONS=use_darkgray
+OPTIONS=use_inverse
+OPTIONS=verbose
+
+# Non-booleans
+
+OPTIONS=boulder:0
+OPTIONS=menustyle:full
+OPTIONS=menu_headings:inverse
+OPTIONS=msghistory:200
+OPTIONS=msg_window:reversed 
+OPTIONS=number_pad:0
+OPTIONS=paranoid_confirmation:quit attack pray Remove
+OPTIONS=pickup_burden:unencumbered
+#OPTIONS=runmode:walk
+#OPTIONS=scores:5t 2a o
+OPTIONS=sortloot:loot
+OPTIONS=suppress_alert:3.4.3
+
+SYMBOLS=S_ghost:8
+SYMBOLS=S_golem:7
+
+#
+#OPTIONS=statushilites
+OPTIONS=hilite_status: dungeon-level/changed/magenta
+OPTIONS=hilite_status: gold/always/yellow&normal
+OPTIONS=hilite_status: hitpoints/100%/green
+OPTIONS=hilite_status: hitpoints/<100%/yellow/<40%/orange
+OPTIONS=hilite_status: hitpoints/<20%/red/<10%/red+inverse
+OPTIONS=hilite_status: hitpoints-max/up/green+bold/down/red+bold
+OPTIONS=hilite_status: power/<40%/yellow/<20%/red
+OPTIONS=hilite_status: power-max/up/green+bold/down/red+bold
+OPTIONS=hilite_status: armor-class/down/lightgreen/up/orange
+OPTIONS=hilite_status: HD/up/green/down/red
+OPTIONS=hilite_status: experience-level/down/orange/up/lightblue+bold
+OPTIONS=hilite_status: hunger/satiated/yellow+bold
+OPTIONS=hilite_status: hunger/hungry/orange/weak/red+inverse
+OPTIONS=hilite_status: hunger/fainting/red+inverse/fainted/red+inverse/starved/red+inverse
+OPTIONS=hilite_status: cap/burdened/yellow/stressed/orange
+OPTIONS=hilite_status: cap/strained/red/overtaxed/red+inverse
+OPTIONS=hilite_status: condition/major_troubles/red+bold+inverse
+OPTIONS=hilite_status: condition/minor_troubles/orange+bold
+OPTIONS=hilite_status: condition/movement/lightgreen+bold
+
+#OPTIONS=menucolors 
+MENUCOLOR=" blessed "=cyan 
+MENUCOLOR=" holy "=cyan 
+MENUCOLOR=" cursed "=red&bold 
+MENUCOLOR=" unholy "=red&bold 
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+
+# stuff to not put in your bag of holding
+MENUCOLOR="wand of cancellation"=yellow
+# "bag of " matches holding or tricks.
+MENUCOLOR="bag of "=yellow
+MENUCOLOR="holdybag"=yellow
+# I name suspect wands like this
+MENUCOLOR="DO NOT BAG"=yellow 
+
+# This requies special handling - no drop on altar for BUC, etc.
+MENUCOLOR=".*[Ss]care [Mm]onster.*"=magenta
+
+#  spell failure rates (also from stth)
+MENUCOLOR=" 0% "=lightgreen 
+MENUCOLOR=" [1-9]% "=yellow 
+MENUCOLOR=" 1[0-9]% "=yellow 
+MENUCOLOR=" 2[0-4]% "=yellow 
+MENUCOLOR=" 2[5-9]% "=orange 
+MENUCOLOR=" [3-4][0-9]% "=orange 
+MENUCOLOR=" [5-9][0-9]% "=red 
+MENUCOLOR=" 100% "=lightmagenta
+
+
+# Messagetypes
+#
+
+# bullwhip
+MSGTYPE=stop ".* flicks a bullwhip towards your .*!"
+MSGTYPE=stop ".* wraps around .* you're wielding!"
+MSGTYPE=stop ".* yanks .* from your .*!"
+MSGTYPE=stop ".* yanks .* to the .*!"
+MSGTYPE=stop ".* snatches .*!"
+
+# dangerous items
+MSGTYPE=stop ".*chickatrice corpse.*"
+MSGTYPE=stop ".*cockatrice corpse.*"
+MSGTYPE=stop ".*cockatrice egg.*"
+MSGTYPE=stop ".*Tsurugi of Muramasa.*"
+MSGTYPE=stop ".*Vorpal Blade.*"
+
+# experience gain/loss
+MSGTYPE=stop "You feel more experienced\."
+MSGTYPE=stop "Welcome to experience level .*\."
+MSGTYPE=stop "Goodbye level .*\." # default
+MSGTYPE=stop "Fare thee well level .*\." # knight
+MSGTYPE=stop "Sayonara level .*\." # samurai
+MSGTYPE=stop "Aloha level .*\." # tourist
+MSGTYPE=stop "Farvel level .*\." # valkyrie
+
+# hunger
+MSGTYPE=alert "You feel weak now\."
+MSGTYPE=alert "You feel weak\."
+MSGTYPE=alert "You are beginning to feel weak\."
+MSGTYPE=alert "The munchies are interfering with your motor capabilities\." # hallu
+MSGTYPE=alert ".* needs food, badly!"
+MSGTYPE=stop "You faint from lack of food\."
+
+# illness
+MSGTYPE=alert "You feel deathly sick\."
+MSGTYPE=stop "You feel even worse\."
+MSGTYPE=stop "You feel much worse\."
+
+# inventory cursing
+MSGTYPE=stop "You feel a malignant aura .*"
+
+# near-death
+MSGTYPE=alert "You hear the howling of the CwnAnnwn\.\.\."
+MSGTYPE=alert "You hear the wailing of the Banshee\.\.\."
+MSGTYPE=alert ".*, all your powers will be lost\.\.\."
+MSGTYPE=alert ".*, your life force is running out\."
+MSGTYPE=alert ".* is about to die\."
+
+# sliming
+MSGTYPE=stop "You don't feel very well\."
+MSGTYPE=stop "You suck in some slime and don't feel very well\."
+MSGTYPE=stop "You are turning a little green\."
+MSGTYPE=stop "Your limbs are getting oozy\."
+MSGTYPE=stop "Your skin begins to peel away\."
+MSGTYPE=stop "You are turning into a green slime\."
+MSGTYPE=stop "You are turning into .*\." # hallu
+
+# (failed) spell casting
+MSGTYPE=stop "You don't have enough energy to cast that spell\."
+MSGTYPE=stop "You fail to cast the spell correctly\."
+MSGTYPE=stop "Nothing Happens." # wand.
+
+# stoning
+MSGTYPE=alert "You are slowing down\."
+MSGTYPE=stop "Your limbs are stiffening\."
+MSGTYPE=stop "Your limbs have turned to stone\."
+
+# theft attack (incomplete)
+MSGTYPE=alert ".* stole .*" # steal()
+
+# vault
+MSGTYPE=stop "You hear someone counting money\."
+MSGTYPE=stop "You hear the quarterback calling the play\." # hallu
+MSGTYPE=stop "You hear the footsteps of a guard on patrol\."
+MSGTYPE=stop "You hear Ebenezer Scrooge!" # hallu
+#MSGTYPE=hide "You hear someone searching\." # empty
+
+# Wizard of Yendor
+MSGTYPE=stop "You notice a black glow surrounding you\."
+MSGTYPE=stop "A voice booms out\.\.\."
+
+# aggravate monster
+MSGTYPE=stop "You feel less attractive\." # sit.c    gremlin
+
+# automatic searching
+MSGTYPE=stop "You feel perceptive!" # attrib.c    level++
+MSGTYPE=stop "You feel less perceptive!" # attrib.c    level--
+MSGTYPE=stop "You feel unaware!" # attrib.c    level-- (monk)
+
+# charisma
+MSGTYPE=stop "You feel charismatic!" # attrib.c    a_cha++
+MSGTYPE=stop "You feel very charismatic!" # attrib.c    a_cha++ (>1)
+MSGTYPE=stop "You feel repulsive!" # attrib.c    a_cha--
+MSGTYPE=stop "You feel very repulsive!" # attrib.c    a_cha-- (>1)
+
+# cold resistance
+MSGTYPE=stop "You feel warm!" # attrib.c    level++
+MSGTYPE=stop "You feel cooler!" # attrib.c    level--
+MSGTYPE=stop "You feel full of hot air\." # eat.c    eat_mon
+MSGTYPE=stop "You feel cooler\." # sit.c    gremlin
+
+# constitution
+MSGTYPE=stop "You feel tough!" # attrib.c    a_con++
+MSGTYPE=stop "You feel very tough!" # attrib.c    a_con++ (>1)
+MSGTYPE=stop "You feel fragile!" # attrib.c    a_con--
+MSGTYPE=stop "You feel very fragile!" # attrib.c    a_con-- (>1)
+
+# dexterity
+MSGTYPE=stop "You feel agile!" # attrib.c    a_dex++
+MSGTYPE=stop "You feel very agile!" # attrib.c    a_dex++ (>1)
+MSGTYPE=stop "You feel clumsy!" # attrib.c    a_dex--
+MSGTYPE=stop "You feel very clumsy!" # attrib.c    a_dex-- (>1)
+
+# disintegration resistance
+MSGTYPE=stop "You feel very firm\." # eat.c    eat_mon
+MSGTYPE=stop "You feel totally together, man\." # eat.c    eat_mon (hallu)
+
+# fire resistance
+MSGTYPE=stop "You feel cool!" # attrib.c    level++
+MSGTYPE=stop "You feel warmer!" # attrib.c    level--
+MSGTYPE=stop "You feel a momentary chill\." # eat.c    eat_mon
+MSGTYPE=stop "You be chillin'\." # eat.c    eat_mon (hallu)
+MSGTYPE=stop "You feel warmer\." # sit.c    gremlin
+
+# intelligence
+MSGTYPE=stop "You feel smart!" # attrib.c    a_int++
+MSGTYPE=stop "You feel very smart!" # attrib.c    a_int++ (>1)
+MSGTYPE=stop "You feel stupid!" # attrib.c    a_int--
+MSGTYPE=stop "You feel very stupid!" # attrib.c    a_int-- (>1)
+
+# invisibility
+MSGTYPE=stop "You feel paranoid\." # sit.c    gremlin
+
+# lycanthropy
+MSGTYPE=stop "You feel feverish\." # mhitu.c    mon_hit (werefoo)
+
+# poison resistance
+MSGTYPE=stop "You feel healthy!" # attrib.c    level++
+MSGTYPE=stop "You feel hardy!" # attrib.c    level++ (tourist)
+MSGTYPE=stop "You feel less healthy!" # attrib.c    level--
+MSGTYPE=stop "You feel less hardy!" # attrib.c    level-- (tourist)
+MSGTYPE=stop "You feel healthy\." # eat.c    eat_mon
+MSGTYPE=stop "You feel especially healthy\." # eat.c    eat_mon (already)
+MSGTYPE=stop "You feel a little sick!" # sit.c    gremlin
+
+# protection
+MSGTYPE=stop "You feel vulnerable\." # sit.c    gremlin
+
+# see invisible
+MSGTYPE=stop "You thought you saw something!" # sit.c    gremlin
+MSGTYPE=stop "You tawt you taw a puttie tat!" # sit.c    gremlin (hallu)
+MSGTYPE=stop "Your vision becomes clear\." # sit.c    throne
+
+# shock resistance
+MSGTYPE=stop "You feel insulated!" # attrib.c    level++
+MSGTYPE=stop "You feel conductive!" # attrib.c    level--
+MSGTYPE=stop "Your health currently feels amplified!" # eat.c    eat_mon
+MSGTYPE=stop "You feel grounded in reality\." # eat.c    eat_mon (hallu)
+
+# sleep resistance
+MSGTYPE=stop "You feel awake!" # attrib.c    level++
+MSGTYPE=stop "You feel tired!" # attrib.c    level--
+MSGTYPE=stop "You feel wide awake\." # eat.c    eat_mon
+
+# speed
+MSGTYPE=stop "You feel quick!" # attrib.c    level++
+MSGTYPE=stop "You feel slow!" # attrib.c    level--
+MSGTYPE=stop "You seem faster\." # eat.c    eat_mon (Q)
+MSGTYPE=stop "You seem slower\." # eat.c    eat_mon (Q)
+MSGTYPE=stop "You feel slower\." # sit.c    gremlin
+
+# stealth
+MSGTYPE=stop "You feel stealthy!" # attrib.c    level++
+MSGTYPE=stop "You feel less stealthy!" # attrib.c    level--
+MSGTYPE=stop "You feel clumsy\." # sit.c    gremlin
+
+# strength
+MSGTYPE=stop "You feel strong!" # attrib.c    a_str++
+MSGTYPE=stop "You feel very strong!" # attrib.c    a_str++ (>1)
+MSGTYPE=stop "You feel weak!" # attrib.c    a_str--
+MSGTYPE=stop "You feel very weak!" # attrib.c    a_str-- (>1)
+
+# telepathy
+MSGTYPE=stop "You feel a strange mental acuity\." # eat.c    eat_mon
+MSGTYPE=stop "You feel in touch with the cosmos\." # eat.c    eat_mon (hallu)
+MSGTYPE=stop "Your senses fail!" # sit.c    gremlin
+
+# teleport control
+MSGTYPE=stop "You feel controlled!" # attrib.c    level++
+MSGTYPE=stop "You feel uncontrolled!" # attrib.c    level--
+MSGTYPE=stop "You feel in control of yourself\." # eat.c    eat_mon
+MSGTYPE=stop "You feel centered in your personal space\." # eat.c    eat_mon (hallu)
+
+# teleportitis
+MSGTYPE=stop "You feel very jumpy\." # eat.c    eat_mon
+MSGTYPE=stop "You feel diffuse\." # eat.c    eat_mon (hallu)
+MSGTYPE=stop "You feel less jumpy\." # sit.c    gremlin
+
+# warning
+MSGTYPE=stop "You feel sensitive!" # attrib.c    level++
+MSGTYPE=stop "You feel less sensitive!" # attrib.c    level--
+
+# wisdom
+MSGTYPE=stop "You feel wise!" # attrib.c    a_wis++
+MSGTYPE=stop "You feel very wise!" # attrib.c    a_wis++ (>1)
+MSGTYPE=stop "You feel foolish!" # attrib.c    a_wis--
+MSGTYPE=stop "You feel very foolish!" # attrib.c    a_wis-- (>1)
+
+# Those helpful 3.6.0 stairs messages We will still see falling down stairs when burdened.
+# These are less annoying in curses
+#MSGTYPE=hide "You descend the stairs." 
+#MSGTYPE=hide "You climb up the stairs."
+
+## items on floor. don't repeat the message.
+#MSGTYPE=norep "You see here a .*" MSGTYPE=norep "You see here an .*"
+
+## delayed instadeaths.
+MSGTYPE=stop "You find it hard to breathe." 
+MSGTYPE=stop "You are turning a little .*"
+
+MSGTYPE=stop "The .* swings itself around you!" 
+MSGTYPE=stop "The python grabs you!" 
+
+MSGTYPE=stop "It constricts your throat!" 
+MSGTYPE=stop "You're gasping for air." 
+MSGTYPE=stop "Your blood is having trouble reaching your brain." 
+MSGTYPE=stop "You can no longer breathe." 
+MSGTYPE=stop "You're turning blue." 
+MSGTYPE=stop "Your consciousness is fading." 
+
+MSGTYPE=stop "You feel deathly sick." 
+MSGTYPE=stop "You feel much worse." 
+MSGTYPE=stop "You feel even worse."
+
+MSGTYPE=stop "You feel a strange vibration under your .*" 
+MSGTYPE=stop "You feel a strange vibration beneath you."
+
+# skill
+MSGTYPE=alert "You feel more confident in your .*"
+
+# passive attacks
+MSGTYPE=stop "You hit the floating eye"
+MSGTYPE=stop "You miss the floating eye"
+MSGTYPE=stop "You are suddenly very .*"
+MSGTYPE=stop "You are splashed.*"
+
+# Grue challenge
+MSGTYPE=stop "Your .* flickers.*"
+MSGTYPE=stop "Your .* seems about to go out."
+MSGTYPE=stop "Your .* has gone out."
+MSGTYPE=stop "Your lantern is getting dim."
+MSGTYPE=stop "Your lantern has run out of power."
+MSGTYPE=stop "Your .*candle.* getting short."
+MSGTYPE=stop "Your .*candle.* flame.* flicker.* low!"
+MSGTYPE=stop "Your .* consumed!.*"
+MSGTYPE=stop "It is pitch black. You are likely to be eaten by a Grue."
+
+# autopickup.
+OPTIONS=autopickup
+
+#OPTIONS=pickup_burden:Unencumbered
+OPTIONS=pickup_types:$?/+"=!%*
+#OPTIONS=pickup_thrown
+
+autopickup_exception="<.*wand of wishing.*" 
+autopickup_exception="<.*magic marker.*" 
+autopickup_exception="<.*magic lamp.*" 
+autopickup_exception="<.*lamp called magic"
+
+autopickup_exception="<.*silver bell.*" 
+autopickup_exception="<.*Bell of Opening.*" 
+autopickup_exception="<.*candelabrum.*" 
+autopickup_exception="<.*Candelabrum.*" 
+autopickup_exception="<.*Book of the Dead.*" 
+autopickup_exception="<.*papyrus spellbook.*" 
+autopickup_exception="<.*Yendor.*"
+
+# Various player names for stuff they don't really want.
+autopickup_exception=">.* named.* empty.*"
+# Worthless gems/stones (and worse)
+autopickup_exception=">.*gray stone.*" 
+autopickup_exception=">.*loadstone.*" 
+autopickup_exception=">.*LOADSTONE.*" 
+autopickup_exception=">.*LOAD STONE.*" 
+autopickup_exception=">.*flintstone.*"
+# matches rock, rocks rockssss etc will do the job
+autopickup_exception=">.*rocks*" 
+autopickup_exception=">.*stone called flint.*" 
+autopickup_exception=">.*worthless.*" 
+autopickup_exception=">.*gem called.*glass.*"
+
+# scrolls of scare monster are more useful on the ground than a pile of dust in your hands
+AUTOPICKUP_EXCEPTION=">.* [Ss]care [Mm]onster.*"
+
+# Who wants to pick up their discharged wands? Actually, I just apply them when they're empty and this becomes a moot point. But I'll 
+# leave this for the benefit of other people; it's not hurting me.
+autopickup_exception=">.*:0.*"
+
+# You don't want to try to pick up super-heavy corpses. Or any for that matter. (Except maybe lizards, but making that work is more 
+# trouble than it's worth.)
+autopickup_exception=">.* corpse.*"
+
+# new name for pudding/ooze/slime corpses
+autopickup_exception=">.* small glob.*"
+
+
+autopickup_exception=">.*C-ration.*"
+
+# Ever picked up a /oCancellation without realizing it and then put . into your bag of holding?  I have. Not fun.
+autopickup_exception=">.*bag.*" 
+autopickup_exception=">.*wand of cancellation"
+
+# If we have this exception, then we can set pickup_types to iron balls in order to get just exceptions.
+autopickup_exception=">.*heavy iron ball.*"
