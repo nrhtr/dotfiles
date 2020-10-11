@@ -2,7 +2,7 @@
 set -gx PATH $HOME/.local/bin $PATH
 
 #source $HOME/.config/fish/gpg.fish
-wal -r &
+#wal -r &
 
 #GPG agent config
 gpgconf --launch gpg-agent
