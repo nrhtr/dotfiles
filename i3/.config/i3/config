@@ -20,8 +20,11 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color3 #f0f0f0
+#set_from_resource $fg i3wm.color7 #f0f0f0
+#set_from_resource $bg i3wm.color3 #f0f0f0
+
+set $fg #f0f0f0
+set $bg #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
@@ -39,8 +42,18 @@ client.background       $bg
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# i3-gaps config
+for_window [class=".*"] border pixel 1
+gaps inner 5
+smart_gaps on
+smart_gaps inverse_outer
+smart_borders on
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# lock screen
+bindsym $mod+Escape exec ~/bin/obflock.sh
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -179,4 +192,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+bar {
+    status_command i3status
+}
+
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
