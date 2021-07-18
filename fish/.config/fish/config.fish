@@ -3,6 +3,7 @@ set -gx PATH $HOME/.local/bin $PATH
 
 #source $HOME/.config/fish/gpg.fish
 #wal -r &
+set EDITOR vim
 
 #GPG agent config
 gpgconf --launch gpg-agent
