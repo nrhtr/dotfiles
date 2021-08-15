@@ -1,15 +1,11 @@
-#PATH="${PATH}:${HOME}/.local/bin/"
-set -gx PATH $HOME/.local/bin $PATH
+fish_add_path "$HOME/bin"
 
 #source $HOME/.config/fish/gpg.fish
-#wal -r &
-set EDITOR vim
-
 #GPG agent config
-gpgconf --launch gpg-agent
+#gpgconf --launch gpg-agent
 
 set UID (id -u)
-set SSH_AUTH_SOCK "/run/user/$UID/gnupg/S.gpg-agent.ssh"
+#set SSH_AUTH_SOCK "/run/user/$UID/gnupg/S.gpg-agent.ssh"
 
 set normal (set_color normal)
 set magenta (set_color magenta)
@@ -28,7 +24,7 @@ set __fish_git_prompt_color_upstream_ahead green
 set __fish_git_prompt_color_upstream_behind red
 
 # Status Chars
-set __fish_git_prompt_char_dirtystate '⚡'
+set __fish_git_prompt_char_dirtystate '_'
 set __fish_git_prompt_char_stagedstate '→'
 set __fish_git_prompt_char_untrackedfiles '☡'
 set __fish_git_prompt_char_stashstate '↩'
@@ -47,3 +43,4 @@ function fish_prompt
   set_color normal
 end
 
+direnv hook fish | source
