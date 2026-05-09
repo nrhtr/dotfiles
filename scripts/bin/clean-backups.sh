@@ -8,11 +8,13 @@ if [[ -z "$failed" ]]; then
   exit 0
 fi
 
-echo "Failed archives:"
-echo "$failed"
+echo "Will run:"
+echo "$failed" | while read -r archive; do
+  echo "  borg delete \"::${archive}\""
+done
 echo
 
-read -rp "Delete all of the above? [y/N] " confirm
+read -rp "Proceed? [y/N] " confirm
 [[ "$confirm" =~ ^[Yy]$ ]] || exit 0
 
 echo "$failed" | xargs -I {} borg delete "::{}"
