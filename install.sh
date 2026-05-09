@@ -26,5 +26,8 @@ symlink i3status-rust ~/.config/i3status-rust
 # home-root dotfiles
 symlink nethack/.nethackrc ~/.nethackrc
 
-# scripts
-symlink scripts/bin ~/bin
+# scripts — link individual files so ~/bin can coexist with other scripts
+mkdir -p ~/bin
+for f in "${basedir}/scripts/bin/"*; do
+    symlink "scripts/bin/$(basename "$f")" "$HOME/bin/$(basename "$f")"
+done
