@@ -18,9 +18,13 @@ mkdir -p ~/.config
 symlink nvim ~/.config/nvim
 symlink sway ~/.config/sway
 symlink foot ~/.config/foot
-symlink luakit ~/.config/luakit
 symlink niri ~/.config/niri
 symlink waybar ~/.config/waybar
+symlink rtorrent ~/.config/rtorrent
+symlink i3status-rust ~/.config/i3status-rust
+
+# home-root dotfiles
+symlink nethack/.nethackrc ~/.nethackrc
 
 # scripts
 symlink scripts/bin ~/bin
