@@ -1,11 +1,11 @@
-!urxvt*font:6x13
-!urxvt*boldFont:6x13
-!
+urxvt*font:6x13
+urxvt*boldFont:6x13
+
 !urxvt*font: xft:Inconsolata:size=12
 !urxvt*boldFont: xft:Inconsolata:size=12
 
-urxvt*font: xft:DejaVu Sans Mono:size=11
-urxvt*boldFont: xft:DejaVu Sans Mono:size=11
+!urxvt*font: xft:DejaVu Sans Mono:size=11
+!#urxvt*boldFont: xft:DejaVu Sans Mono:size=11
 
 !urxvt*font:	xft:Inconsolata
 !urxvt*boldFont:	xft:Inconsolata

@@ -1,11 +1,10 @@
 fish_add_path "$HOME/bin"
 
-#source $HOME/.config/fish/gpg.fish
-#GPG agent config
-#gpgconf --launch gpg-agent
-
 set UID (id -u)
-#set SSH_AUTH_SOCK "/run/user/$UID/gnupg/S.gpg-agent.ssh"
+
+source $HOME/.config/fish/gpg.fish
+
+alias upass="env PASSWORD_STORE_DIR=/home/jenga/unimelb/secrets pass"
 
 set normal (set_color normal)
 set magenta (set_color magenta)

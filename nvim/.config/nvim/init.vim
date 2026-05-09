@@ -7,6 +7,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'ziglang/zig.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'LnL7/vim-nix'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 call plug#end()
 
 filetype plugin indent on
