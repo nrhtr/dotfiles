@@ -1,6 +1,0 @@
-#!/usr/bin/env fish
-set -x BORG_PASSCOMMAND "cat /home/jenga/.secrets/borg-phrase"
-set -x BORG_REMOTE_PATH borg14
-set -x BORG_REPO "hk1090@hk1090.rsync.net:thinkpad"
-set -x BORG_RSH "ssh -i /home/jenga/.secrets/borg-key"
-borg $argv
